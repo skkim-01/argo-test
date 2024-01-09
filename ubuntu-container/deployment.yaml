@@ -1,0 +1,23 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: ubuntu-go-deployment
+  namespace: skkim-01
+  labels:
+    app: ubuntu-go
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ubuntu-go
+  template:
+    metadata:
+      labels:
+        app: ubuntu-go
+    spec:
+      containers:
+      - name: ubuntu-go
+        image: skkim01/ubuntu-go/base:v1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9999
