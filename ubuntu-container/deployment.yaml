@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: ubuntu-go
-        image: skkim01/ubuntu-go/base:v1.0
+        image: skkim01/ubuntu-go:v0.7.0
         imagePullPolicy: Always
         ports:
         - containerPort: 9999
