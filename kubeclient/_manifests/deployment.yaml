@@ -1,0 +1,23 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: kubeclient-deployment
+  namespace: skkim-01
+  labels:
+    app: kubeclient
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubeclient
+  template:
+    metadata:
+      labels:
+        app: kubeclient
+    spec:
+      containers:
+      - name: ubuntu-go
+        image: skkim01/kubeclient:v1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9999
